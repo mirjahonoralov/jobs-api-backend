@@ -4,7 +4,7 @@ info:
   contact: {}
   version: "1.0"
 servers:
-  - url: https://store-api-eq9p.onrender.com/api/v1
+  - url: https://jobs-api-eq9p.onrender.com/api/v1
     variables: {}
 paths:
   /auth/login:
@@ -104,7 +104,7 @@ paths:
       deprecated: false
       security:
         - bearer: []
-  /user/{id}:
+  /jobs/{id}:
     parameters:
       - in: path
         name: id
