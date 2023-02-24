@@ -4,7 +4,7 @@ info:
   contact: {}
   version: "1.0"
 servers:
-  - url: https://jobs-api-backend-rmjc.onrender.com/api/v1
+  - url: https://jobs-api-backend-3593.onrender.com/api/v1
     variables: {}
 paths:
   /auth/login:
