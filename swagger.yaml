@@ -22,11 +22,11 @@ paths:
               allOf:
                 - $ref: "#/components/schemas/LoginRequest"
                 - example:
-                    email: hi@mail.ru
-                    password: "1234558"
+                    email: some@mail.ru
+                    password: "123456"
             example:
-              email: hi@mail.ru
-              password: "1234558"
+              email: some@mail.ru
+              password: "123456"
         required: true
       responses:
         "200":
@@ -50,8 +50,12 @@ paths:
                 - $ref: "#/components/schemas/RegisterRequest"
                 - example:
                     name: user
+                    password: "123456"
+                    email: some@mail.ru
             example:
               name: user
+              password: "123456"
+              email: some@mail.ru
         required: true
       responses:
         "200":
@@ -87,11 +91,11 @@ paths:
               allOf:
                 - $ref: "#/components/schemas/CreatejobRequest"
                 - example:
-                    company: solutions
-                    position: web designer
+                    company: google
+                    position: backend developer
             example:
-              company: solutions
-              position: web designer
+              company: google
+              position: backend developer
         required: true
       responses:
         "200":
@@ -100,19 +104,19 @@ paths:
       deprecated: false
       security:
         - bearer: []
-  /jobs/{id}:
+  /user/{id}:
     parameters:
       - in: path
         name: id
         schema:
-          type: String
+          type: integer
         required: true
         description: The user ID
     get:
       tags:
         - Jobs
-      summary: Get job by id
-      operationId: Getjobbyid
+      summary: Get job
+      operationId: Getjob
       parameters: []
       responses:
         "200":
@@ -177,18 +181,26 @@ components:
         password:
           type: string
       example:
-        email: hi@mail.ru
-        password: "1234558"
+        email: some@mail.ru
+        password: "123456"
     RegisterRequest:
       title: RegisterRequest
       required:
         - name
+        - password
+        - email
       type: object
       properties:
         name:
           type: string
+        password:
+          type: string
+        email:
+          type: string
       example:
         name: user
+        password: "123456"
+        email: some@mail.ru
     CreatejobRequest:
       title: CreatejobRequest
       required:
@@ -201,8 +213,8 @@ components:
         position:
           type: string
       example:
-        company: solutions
-        position: web designer
+        company: google
+        position: backend developer
     UpdatejobRequest:
       title: UpdatejobRequest
       required:
